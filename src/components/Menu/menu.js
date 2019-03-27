@@ -18,7 +18,8 @@ class Menu extends Component {
       changeDistanceFilter, 
       highlightedProviders,
       clearVisaFilter,
-      changeVisaFilter
+      changeVisaFilter,
+      visas
     } = this.props;
     return (
       <div className="side-menu">
@@ -34,6 +35,7 @@ class Menu extends Component {
               />
               <MenuVisaFilter
                 filters={filters}
+                visas={visas}
                 clearVisaFilter={clearVisaFilter}
                 changeVisaFilter={changeVisaFilter}
               />

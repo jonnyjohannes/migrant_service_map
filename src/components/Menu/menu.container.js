@@ -12,7 +12,7 @@ import {
 import { getProvidersSorted } from "../../redux/selectors.js";
 import Menu from "./menu";
 
-const VISA_TYPES = ['visa1', 'visa2', 'visa3'];
+const VISAS = ['visa1', 'visa2', 'visa3'];
 
 const MenuContainer = props => {
   return <Menu {...props} />;
@@ -23,7 +23,7 @@ const mapStateToProps = state => {
     providersList: getProvidersSorted(state),
     highlightedProviders: state.highlightedProviders,
     savedProviders: state.providers.savedProviders,
-    visaTypes: VISA_TYPES,
+    visas: VISAS,
     visibleTypes: state.providerTypes.visible,
     filters: state.filters
   };

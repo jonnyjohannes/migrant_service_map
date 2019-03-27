@@ -2,12 +2,10 @@ import React, { Component } from "react";
 
 class MenuVisaFilter extends Component {
   render() {
-    const VISA_TYPES = ['visa1', 'visa2', 'visa3'];
-
     return (
       <ul>
         visa filters:
-        {VISA_TYPES.map((visa, i) => (
+        {this.props.visas.map((visa, i) => (
           <li key={i}>
             <div>
               <input
