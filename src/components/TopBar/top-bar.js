@@ -31,6 +31,7 @@ class TopBar extends Component {
       changeDistanceFilter,
       clearVisaFilter,
       changeVisaFilter,
+      visaTypes,
       visibleTypes,
       providerTypes,
       toggleProviderVisibility,
@@ -38,7 +39,10 @@ class TopBar extends Component {
     const topBarItemClass = "top-bar-item";
     return (
       <div className="top-bar">
-        <VisaStatusDropdown className={topBarItemClass} />
+        <VisaStatusDropdown
+          className={topBarItemClass}
+          visaTypes={visaTypes}
+        />
         <ProviderTypeDropdown 
           className={topBarItemClass} 
           providerTypes={providerTypes} 
