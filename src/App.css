@@ -60,10 +60,6 @@
   color: white;
 }
 
-.list-item {
-  margin: 0.5rem;
-}
-
 .map-container {
   position: relative;
   /* display: flex;
@@ -113,21 +109,6 @@
   font-size: 22px;
   font-weight: 800;
   text-transform: uppercase;
-}
-
-.popup .popup-info {
-  width: 320px;
-  font-size: 16px;
-}
-.popup-info {
-  display: flex;
-  align-items: center;
-  font-weight: 500;
-  color: #5d5d5d;
-}
-
-.popup-info img {
-  margin-right: 0.5em;
 }
 
 .popup-text {

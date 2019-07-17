@@ -1,24 +1,53 @@
 import React from "react";
+import { Row } from "simple-flexbox";
 import "./details-pane.css";
+import ProviderDetailsInfo from "./provider-details-info";
 
-const DetailsPane = ({ provider }) => (
-  <div className="details-pane">
-    <div className="provider-info">
-      <span className="popup-info">
-        <img alt="phone icon" src="https://icon.now.sh/perm_phone_msg" />
-        {provider.telephone}
-      </span>
-      <span className="popup-info">
-        <img alt="web icon" src="https://icon.now.sh/language" />
-        <a href={provider.website}> {provider.website}</a>
-      </span>
-      <span className="popup-info">
-        <img alt="home icon" src="https://icon.now.sh/home" />
-        {provider.address || "address"}
-      </span>
-      <div className="popup-text">{provider.mission.slice(0, 70)}</div>
-    </div>
-  </div>
-);
+export default class DetailsPane extends React.Component {
+  state = { isMissionTextExpanded: false };
 
-export default DetailsPane;
+  onMissionTextExpanderClicked = e => {
+    e.stopPropagation();
+    const { isMissionTextExpanded } = this.state;
+
+    this.setState({ isMissionTextExpanded: !isMissionTextExpanded });
+  };
+
+  render() {
+    const {
+      provider: { email, address, website, telephone, mission }
+    } = this.props;
+    const { isMissionTextExpanded } = this.state;
+    return (
+      <div className="details-pane provider-info">
+        <Row>
+          <ProviderDetailsInfo icon="email" label="email" ellipsis>
+            <a href={"mailto:" + email}>{email}</a>
+          </ProviderDetailsInfo>
+          <ProviderDetailsInfo icon="language" label="website" ellipsis>
+            <a href={website}> {website}</a>
+          </ProviderDetailsInfo>
+        </Row>
+        <Row>
+          <ProviderDetailsInfo icon="home" label="address">
+            {address || "address"}
+          </ProviderDetailsInfo>
+          <ProviderDetailsInfo icon="perm_phone_msg" label="phone">
+            {telephone}
+          </ProviderDetailsInfo>
+        </Row>
+        <div
+          className={"missions" + (isMissionTextExpanded ? " expanded" : "")}
+        >
+          {mission}
+        </div>
+        <div
+          className="missions-expander"
+          onClick={e => this.onMissionTextExpanderClicked(e)}
+        >
+          SHOW {isMissionTextExpanded ? "LESS" : "MORE"}
+        </div>
+      </div>
+    );
+  }
+}

@@ -6,9 +6,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  box-sizing: border-box;
 }
 
+* {
+  box-sizing: border-box;
+}
 html,
 body,
 div#root {
@@ -25,8 +27,8 @@ li {
   list-style: none;
   display: flex;
   flex-direction: column;
-  align-items: start;
-  justify-content: start;
+  align-items: flex-start;
+  justify-content: flex-start;
   margin-left: 0;
   padding-left: 0;
 }
@@ -37,7 +39,6 @@ ul {
 }
 
 a,
-p,
 h1,
 h2,
 h3,
@@ -59,5 +60,5 @@ nav {
   padding: 0;
   max-height: 3rem;
   display: flex;
-  background-color: #8c45cf;
+  /* background-color: #8c45cf; */
 }

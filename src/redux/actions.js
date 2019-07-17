@@ -2,12 +2,17 @@ export const INITIALIZE_PROVIDERS = "INITIALIZE_PROVIDERS";
 export const TOGGLE_TYPE = "TOGGLE_TYPE";
 export const CHANGE_DISTANCE = "CHANGE_DISTANCE";
 export const CLEAR_DISTANCE = "CLEAR_DISTANCE";
+export const CHANGE_VISA = "CHANGE_VISA";
+export const CLEAR_VISA = "CLEAR_VISA";
 export const HIGHLIGHT_PROVIDER = "HIGHLIGHT_PROVIDER";
 export const SET_SEARCH_COORDINATES = "SET_SEARCH_COORDINATES";
 export const FILTER_PROVIDERS = "FILTER_PROVIDERS";
 export const FILTER_NAME = "FILTER_NAME";
 export const SAVE_PROVIDER = "SAVE_PROVIDER";
-export const UNSAVE_PROVIDER = "UNSAVE_PROVIDER";
+export const SELECT_TAB = "SELECT_TAB";
+export const REORDER_SAVED_PROVIDERS = "REORDER_SAVED_PROVIDERS";
+export const CHANGE_SORT_ORDER = "CHANGE_SORT_ORDER";
+export const SET_MAP_OBJECT = "SET_MAP_OBJECT";
 
 export const initializeProviders = providers => {
   // TODO WHEN ASYNC async dispatch => {
@@ -19,12 +24,19 @@ export const initializeProviders = providers => {
   //});
 };
 
+export function setMapObject(mapObject) {
+  return {
+    type: SET_MAP_OBJECT,
+    mapObject
+  };
+}
+
 export function displayProviderInformation(providerId) {
   return {
     type: HIGHLIGHT_PROVIDER,
     providerId
   };
- }
+}
 
 export function toggleProviderVisibility(providerType) {
   return {
@@ -46,10 +58,25 @@ export function clearDistanceFilter() {
   };
 }
 
-export function setSearchCenterCoordinates(coordinates) {
+export function changeVisaFilter(visa) {
+  return {
+    type: CHANGE_VISA,
+    visa
+  };
+}
+
+export function clearVisaFilter() {
+  return {
+    type: CLEAR_VISA
+  };
+}
+
+export function setSearchCenterCoordinates(coordinates, mapboxId, text) {
   return {
     type: SET_SEARCH_COORDINATES,
-    coordinates
+    coordinates,
+    mapboxId,
+    text
   };
 }
 
@@ -74,9 +101,23 @@ export function saveProvider(id) {
   };
 }
 
-export function unsaveProvider(id) {
+export function selectTab(index) {
   return {
-    type: UNSAVE_PROVIDER,
+    type: SELECT_TAB,
+    index
+  };
+}
+
+export function reorderSavedProviders(ids) {
+  return {
+    type: REORDER_SAVED_PROVIDERS,
+    ids
+  };
+}
+
+export function changeSortOrder(id) {
+  return {
+    type: CHANGE_SORT_ORDER,
     id
   };
 }

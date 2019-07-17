@@ -1,16 +1,15 @@
 import {
-  HIGHLIGHT_PROVIDER,
   INITIALIZE_PROVIDERS,
   SAVE_PROVIDER,
-  UNSAVE_PROVIDER
+  CHANGE_SORT_ORDER,
+  REORDER_SAVED_PROVIDERS
 } from "./actions";
-import dotProp from "dot-prop-immutable";
 
 const INITIAL_STATE = {
   allIds: [],
   byId: {},
-  savedProviders: [],
-  highlightedProviders: [],
+  sortMethod: "Provider Type",
+  savedProviders: []
 };
 
 export default function providers(state = INITIAL_STATE, action) {
@@ -18,14 +17,16 @@ export default function providers(state = INITIAL_STATE, action) {
     case INITIALIZE_PROVIDERS:
       return initialProviders(state, action.payload);
     case SAVE_PROVIDER:
+      return saveProvider(state, action.id);
+    case CHANGE_SORT_ORDER:
       return {
         ...state,
-        savedProviders: [action.id, ...state.savedProviders]
+        sortMethod: action.id
       };
-    case UNSAVE_PROVIDER:
+    case REORDER_SAVED_PROVIDERS:
       return {
         ...state,
-        savedProviders: state.savedProviders.filter(p => p !== action.id)
+        savedProviders: action.ids
       };
     default:
       return state;
@@ -38,4 +39,14 @@ function initialProviders(state, payload) {
     allIds: payload.providers.allIds,
     byId: payload.providers.byId
   };
+}
+
+function saveProvider(state, id) {
+  return state.savedProviders.includes(id)
+    ? {
+        //deletes if true
+        ...state,
+        savedProviders: state.savedProviders.filter(p => p !== id)
+      } //adds if false
+    : { ...state, savedProviders: [id, ...state.savedProviders] };
 }

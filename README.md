@@ -21,16 +21,16 @@ Thanks for choosing to support our initiative to support and strengthen migrant 
 - Mall Wood mal.wood@mapbox.com,
 - Joe Clark joe.clark@mapbox.com,
 
-### Code4Boston Support:
+### Code for Boston Support:
 
-- Thad Kerosky <thadknull@gmail.com>
+- Liam Morley liam@codeforboston.org
 - Matt mattz@codeforboston.org
 
 ## Project Materials and Communications
 
 - Slack Channel: #migrantservicemap
   - [Join Code for Boston's Slack Workplace](https://communityinviter.com/apps/cfb-public/code-for-boston)
-- [Project Board](https://github.com/codeforboston/migrant_service_map/projects/1)
+- [Project Board](https://trello.com/invite/b/rVNLIxod/2c7ced88a95f6514f8ef49eb2e622cd8/migrant-service-map)
 - [Weekly Meeting Minutes](https://docs.google.com/document/d/1Q4KbIK_mSc1YiAWd6nZ9qgy0cJgI_m5sBXKJMqfagHo/edit?usp=sharing)
 - [Draft Link](https://bl.ocks.org/malwoodsantoro/raw/bb965255726264a1187d0de845f32c41/)
 - [Database](https://docs.google.com/spreadsheets/d/1yuYBtejcDPPxkY3ogHkqGEp7h3RrZ_3B2SUsraASWcs/edit?usp=sharing)
@@ -47,7 +47,7 @@ The types of services include, housing, work placement, english, legal assistanc
 
 ## Getting Started
 
-### Prerequesites
+### Prerequisites
 
 #### Node
 
